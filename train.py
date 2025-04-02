@@ -27,7 +27,7 @@ def main(config):
 
     # build model architecture, then print to console
     model = config.init_obj('arch', module_arch)
-    logger.info(model)
+    logger.info(model)  # log info about the model
 
     # prepare for (multi-device) GPU training
     device, device_ids = prepare_device(config['n_gpu'])
@@ -40,7 +40,7 @@ def main(config):
     metrics = [getattr(module_metric, met) for met in config['metrics']]
 
     # build optimizer, learning rate scheduler. delete every lines containing lr_scheduler for disabling scheduler
-    trainable_params = filter(lambda p: p.requires_grad, model.parameters())
+    trainable_params = filter(lambda p: p.requires_grad, model.parameters())  # get trainable parameters, filter out parameters that don't require gradient, this function is torch.where, but it's not a function, it's a class
     optimizer = config.init_obj('optimizer', torch.optim, trainable_params)
     lr_scheduler = config.init_obj('lr_scheduler', torch.optim.lr_scheduler, optimizer)
 

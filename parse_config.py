@@ -113,9 +113,9 @@ class ConfigParser:
 
     def get_logger(self, name, verbosity=2):
         msg_verbosity = 'verbosity option {} is invalid. Valid options are {}.'.format(verbosity, self.log_levels.keys())
-        assert verbosity in self.log_levels, msg_verbosity
-        logger = logging.getLogger(name)
-        logger.setLevel(self.log_levels[verbosity])
+        assert verbosity in self.log_levels, msg_verbosity  # check if verbosity is in the log_levels dictionary
+        logger = logging.getLogger(name)  # get the logger object
+        logger.setLevel(self.log_levels[verbosity])  # set the level of the logger
         return logger
 
     # setting read-only attributes
