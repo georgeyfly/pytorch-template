@@ -364,6 +364,8 @@ Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before c
 
 ## TODOs
 
+- [ ] Add support for Wandb
+- [ ] Add support for Accelerator
 - [ ] Multiple optimizers
 - [ ] Support more tensorboard functions
 - [x] Using fixed random seed
