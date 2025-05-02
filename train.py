@@ -33,7 +33,7 @@ def main(config):
     device, device_ids = prepare_device(config['n_gpu'])
     model = model.to(device)
     if len(device_ids) > 1:
-        model = torch.nn.DataParallel(model, device_ids=device_ids)
+        model = torch.nn.DataParallel(model, device_ids=device_ids)  # TODO: change to Accelerator
 
     # get function handles of loss and metrics
     criterion = getattr(module_loss, config['loss'])

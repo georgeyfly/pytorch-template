@@ -364,8 +364,13 @@ Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before c
 
 ## TODOs
 
+- [ ] Not use base class, think about whether need base
 - [ ] Add support for Wandb
 - [ ] Add support for Accelerator
+- [ ] make log and model output in the same dir
+- [ ] improve this logout format
+- [ ] add loss/metrics to output name
+- [ ] add function of save top k, can use pytorch-lightning source code
 - [ ] Multiple optimizers
 - [ ] Support more tensorboard functions
 - [x] Using fixed random seed
