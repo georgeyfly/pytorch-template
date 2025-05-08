@@ -364,9 +364,9 @@ Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before c
 
 ## TODOs
 
-- [ ] Not use base class, think about whether need base
 - [ ] Add support for Wandb
 - [ ] Add support for Accelerator
+- [ ] Not use base class, think about whether need base
 - [ ] make log and model output in the same dir
 - [ ] improve this logout format
 - [ ] add loss/metrics to output name
