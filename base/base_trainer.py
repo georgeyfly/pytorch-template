@@ -45,10 +45,22 @@ class BaseTrainer:
 
         # setup visualization writer instance
         # FIXME: logic is not good, need to improve
-        self.writer = TensorboardWriter(
-            config.log_dir, self.logger, cfg_trainer['tensorboard']
-        ) if cfg_trainer['tensorboard'] else WandBWriter(
-            self.logger, config.log_dir, cfg_trainer['wandb'])
+        if cfg_trainer['tensorboard']:
+            self.writer = TensorboardWriter(
+                config.log_dir, self.logger, cfg_trainer['tensorboard']
+            )
+        else:
+            wandb_config = cfg_trainer.get('wandb', {})
+            self.writer = WandBWriter(
+                self.logger,
+                self.config._config,
+                project_name=wandb_config.get('project_name', 'pytorch_template'),
+                entity=wandb_config.get('entity'),
+                run_name=wandb_config.get('run_name', 'training'),
+                mode=wandb_config.get('mode', 'online'),
+                loss_names=wandb_config.get('loss_names', ['loss']),
+                log_checkpoints=wandb_config.get('log_checkpoints', False)
+            )
 
         if config.resume is not None:
             self._resume_checkpoint(config.resume)
