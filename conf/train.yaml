@@ -13,4 +13,4 @@ defaults:
   - status: train
 
   - hydra/job_logging : custom
-  - hydra/run/dir: job_timestamp
+  - hydra/run/dir/job_timestamp
