@@ -1,34 +1,35 @@
 # PyTorch Template Project
+**This branch is used to learn this project of branch hydra_DDP with some comments. Also, I will add some features to this branch if possible.**
 Simple project base template for PyTorch deep Learning project.
 
 <!-- TOC depthFrom:1 depthTo:6 orderedList:false -->
 
 - [PyTorch Template Project](#pytorch-template-project)
-    - [Installation](#installation)
-        - [Requirements](#requirements)
-        - [Features](#features)
-        - [Folder Structure](#folder-structure)
-    - [Usage](#usage)
-        - [Hierarchical configurations with Hydra](#hierarchical-configurations-with-hydra)
-        - [Using config files](#using-config-files)
-        - [Checkpoints](#checkpoints)
-        - [Resuming from checkpoints](#resuming-from-checkpoints)
-        - [Using Multiple GPU](#using-multiple-gpu)
-    - [Customization](#customization)
-        - [Project initialization](#project-initialization)
-        - [Data Loader](#data-loader)
-        - [Trainer](#trainer)
-        - [Model](#model)
-        - [Loss](#loss)
-        - [Metrics](#metrics)
-        - [Additional logging](#additional-logging)
-        - [Testing](#testing)
-        - [Validation data](#validation-data)
-        - [Checkpoints](#checkpoints-1)
-        - [Tensorboard Visualization](#tensorboard-visualization)
-    - [Contribution](#contribution)
-    - [TODOs](#todos)
-    - [License](#license)
+  - [Installation](#installation)
+    - [Requirements](#requirements)
+    - [Features](#features)
+    - [Folder Structure](#folder-structure)
+  - [Usage](#usage)
+    - [Hierarchical configurations with Hydra](#hierarchical-configurations-with-hydra)
+    - [Using config files](#using-config-files)
+    - [Checkpoints](#checkpoints)
+    - [Resuming from checkpoints](#resuming-from-checkpoints)
+    - [Using Multiple GPU](#using-multiple-gpu)
+  - [Customization](#customization)
+    - [Project initialization](#project-initialization)
+    - [Data Loader](#data-loader)
+    - [Trainer](#trainer)
+    - [Model](#model)
+    - [Loss](#loss)
+    - [Metrics](#metrics)
+    - [Additional logging](#additional-logging)
+    - [Testing](#testing)
+    - [Validation data](#validation-data)
+    - [Checkpoints](#checkpoints-1)
+    - [Tensorboard Visualization](#tensorboard-visualization)
+  - [Contribution](#contribution)
+  - [TODOs](#todos)
+  - [License](#license)
 
 <!-- /TOC -->
 
@@ -384,6 +385,7 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
 ## TODOs
+- [ ] Add WandB logging
 - [ ] Support DistributedDataParallel
 - [x] Option to keep top-k checkpoints only
 - [ ] Simple unittest code for `nn.Module` and others
