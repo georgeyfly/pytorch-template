@@ -252,7 +252,7 @@ You can resume from a previously saved checkpoint by:
   ```
 
 ### Using Multiple GPU
-You can enable multi-GPU training(with DataParallel) by setting `n_gpu` argument of the config file to larger number. If configured to use smaller number of gpu than available, first n devices will be used by default. When you want to run multiple instances of training on larger maching, specify indices of available GPUs by cuda environmental variable.
+You can enable multi-GPU training(with DataParallel) by setting `n_gpu` argument of the config file to larger number. If configured to use smaller number of gpu than available, first n devices will be used by default. When you want to run multiple instances of training on larger machine, specify indices of available GPUs by cuda environmental variable.
   ```bash
   # assume running on a machine with 4 GPUs.
   python train.py n_gpu=2 # This will use first two GPU, which are on index 0 and 1
