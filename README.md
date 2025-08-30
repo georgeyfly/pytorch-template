@@ -7,6 +7,7 @@ Simple project base template for PyTorch deep Learning project.
 - [PyTorch Template Project](#pytorch-template-project)
   - [Installation](#installation)
     - [Requirements](#requirements)
+    - [Install with pip](#install-with-pip)
     - [Features](#features)
     - [Folder Structure](#folder-structure)
   - [Usage](#usage)
@@ -40,6 +41,13 @@ Simple project base template for PyTorch deep Learning project.
 * tensorboard >= 1.14 (see [Tensorboard Visualization](#tensorboard-visualization))
 * tqdm
 * hydra-core >= 1.0.3
+
+### Install with pip
+```bash
+conda create -n pytorch-template python=3.9
+conda activate pytorch-template
+pip install -r requirements.txt
+```
 
 ### Features
 * Simple and clear directory structure, suitable for most of deep learning projects.
