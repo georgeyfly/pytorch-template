@@ -338,11 +338,13 @@ If you have additional information to be logged, in `_train_epoch()` of your tra
 You can test trained model by running `test.py` passing path to the trained checkpoint by `--resume` argument.
 
 ### Validation data
-To split validation data from a data loader, call `BaseDataLoader.split_validation()`, then it will return a data loader for validation of size specified in your config file.
-The `validation_split` can be a ratio of validation set per total data(0.0 <= float < 1.0), or the number of samples (0 <= int < `n_total_samples`).
+~~To split validation data from a data loader, call `BaseDataLoader.split_validation()`, then it will return a data loader for validation of size specified in your config file.
+The `validation_split` can be a ratio of validation set per total data(0.0 <= float < 1.0), or the number of samples (0 <= int < `n_total_samples`).~~
 
-**Note**: the `split_validation()` method will modify the original data loader
-**Note**: `split_validation()` will return `None` if `"validation_split"` is set to `0`
+~~**Note**: the `split_validation()` method will modify the original data loader~~
+~~**Note**: `split_validation()` will return `None` if `"validation_split"` is set to `0`~~
+
+**<span style="color: red;">Above methods are deprecated. This version code use random split for dataloader.</span>**
 
 ### Checkpoints
 You can specify the name of the training session in config files:
