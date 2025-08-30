@@ -352,7 +352,7 @@ You can specify the name of the training session in config files:
   "name": "MNIST_LeNet",
   ```
 
-The checkpoints will be saved in `save_dir/name/timestamp/checkpoint_epoch_n`, with timestamp in mmdd_HHMMSS format.
+The checkpoints will be saved in `outputs/train/timestamp/models/checkpoint_epochN.pth`, with timestamp in mmdd_HHMMSS format.
 
 A copy of config file will be saved in the same folder.
 
