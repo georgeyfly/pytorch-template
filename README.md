@@ -127,6 +127,15 @@ Modify the configurations in `.yaml` files in `conf/` dir, then run:
   ```
   python train.py
   ```
+There are many config files, each of them is used for a specific purpose.
+Here are the summary of common used config files when you want to change something:
+
+| Config Directory | Function |
+| ----------- | ----------- |
+| conf/train.yaml | Change **training status** (train or debug), **resume path**, etc. |
+| conf/hparams | Open when you want to change Hyper-parameters for like **batch_size**, **learning_rate**, etc. |
+| conf/status | change training setting like **epochs**, **logging_step**, **early_stop**, etc. |
+| conf/evaluate.yaml | Change **resume path**|
 
 At runtime, one file from each config group is selected and combined to be used as one global config.
 
