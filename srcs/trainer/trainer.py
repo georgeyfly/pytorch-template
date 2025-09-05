@@ -1,19 +1,31 @@
 import logging
+
 import torch
 from torchvision.utils import make_grid
-from .base import BaseTrainer
-from srcs.utils import inf_loop
-from srcs.logger import BatchMetrics
 
+from srcs.logger import BatchMetrics
+from srcs.utils import inf_loop
+
+from .base import BaseTrainer
 
 logger = logging.getLogger('trainer')
+
 
 class Trainer(BaseTrainer):
     """
     Trainer class
     """
-    def __init__(self, model, criterion, metric_ftns, optimizer, config, data_loader,
-                 valid_data_loader=None, lr_scheduler=None, len_epoch=None):
+
+    def __init__(self,
+                 model,
+                 criterion,
+                 metric_ftns,
+                 optimizer,
+                 config,
+                 data_loader,
+                 valid_data_loader=None,
+                 lr_scheduler=None,
+                 len_epoch=None):
         super().__init__(model, criterion, metric_ftns, optimizer, config)
         self.config = config
         self.data_loader = data_loader
@@ -27,8 +39,16 @@ class Trainer(BaseTrainer):
         self.valid_data_loader = valid_data_loader
         self.lr_scheduler = lr_scheduler
 
-        self.train_metrics = BatchMetrics('loss', *[m.__name__ for m in self.metric_ftns], postfix='/train', writer=self.writer)
-        self.valid_metrics = BatchMetrics('loss', *[m.__name__ for m in self.metric_ftns], postfix='/valid', writer=self.writer)
+        self.train_metrics = BatchMetrics(
+            'loss',
+            *[m.__name__ for m in self.metric_ftns],
+            postfix='/train',
+            writer=self.writer)
+        self.valid_metrics = BatchMetrics(
+            'loss',
+            *[m.__name__ for m in self.metric_ftns],
+            postfix='/valid',
+            writer=self.writer)
 
     def _train_epoch(self, epoch):
         """
@@ -54,11 +74,10 @@ class Trainer(BaseTrainer):
             if batch_idx % self.log_step == 0:
                 self.writer.add_image('train/input', make_grid(data.cpu(), nrow=8, normalize=True))
                 for met in self.metric_ftns:
-                    self.train_metrics.update(met.__name__, met(output, target))
+                    self.train_metrics.update(met.__name__,
+                                              met(output, target))
                 logger.info('Train Epoch: {} {} Loss: {:.6f}'.format(
-                    epoch,
-                    self._progress(batch_idx),
-                    loss.item()))
+                    epoch, self._progress(batch_idx), loss.item()))
 
             if batch_idx == self.len_epoch:
                 break
@@ -74,7 +93,7 @@ class Trainer(BaseTrainer):
         # add result metrics on entire epoch to tensorboard
         self.writer.set_step(epoch)
         for k, v in log.items():
-            self.writer.add_scalar(k+'/epoch', v)
+            self.writer.add_scalar(k + '/epoch', v)
         return log
 
     def _valid_epoch(self, epoch):
