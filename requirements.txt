@@ -4,3 +4,4 @@ numpy
 hydra-core>=1.0.3
 tqdm
 tensorboard>=1.14
+pandas

@@ -41,6 +41,7 @@ Simple project base template for PyTorch deep Learning project.
 * tensorboard >= 1.14 (see [Tensorboard Visualization](#tensorboard-visualization))
 * tqdm
 * hydra-core >= 1.0.3
+* pandas
 
 ### Install with pip
 ```bash
